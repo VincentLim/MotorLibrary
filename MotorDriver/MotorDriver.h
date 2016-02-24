@@ -4,8 +4,8 @@ Motor driver using L298 component.
 */
 
 
-#ifndef MOTOR_DRIVE_H
-#define MOTOR_DRIVE_H
+#ifndef MOTOR_DRIVER_H
+#define MOTOR_DRIVER_H
 
 #include "Arduino.h"
 
@@ -23,9 +23,10 @@ class MotorDriver{
 		MotorDriver(int pinEnable, int pinCtl1, int pinCtl2, int pinSense = 0);
 		/* 
 			Speed: from 0 to 255, 
-			Direction: stricly negative for one direction (HIGH on pinCtl2), positive for other direction */
+			Direction: strictly negative for one direction (HIGH on pinCtl2), positive for other direction */
 		void run(int speed, char direction);
 		void brake();
+		// TODO : add second method run with speed going from -255 to 255
 		int sense();	
 	private:
 		int _pinEnable;
@@ -35,6 +36,6 @@ class MotorDriver{
 
 };
 
-#endif //MOTOR_DRIVE_H
+#endif //MOTOR_DRIVER_H
 
 
