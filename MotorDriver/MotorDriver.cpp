@@ -9,6 +9,7 @@ MotorDriver::MotorDriver(int pinEnable, int pinCtl1, int pinCtl2, int pinSense /
 	pinMode(_pinEnable, OUTPUT);
 	pinMode(_pinCtl1, OUTPUT);
 	pinMode(_pinCtl2, OUTPUT);
+	// TODO : don't init pin if pinSense is nul
 	pinMode(_pinSense, INPUT);
 
 	analogWrite(_pinEnable, 0);
@@ -25,6 +26,7 @@ void MotorDriver::run(int speed, char direction){
 		digitalWrite(_pinCtl1, HIGH);
 		digitalWrite(_pinCtl2, LOW);
 	}
+	
 	analogWrite(_pinEnable, constrain(speed, 0, 255));
 }
 
