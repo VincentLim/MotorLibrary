@@ -26,7 +26,8 @@ class MotorDriver{
 			Direction: strictly negative for one direction (HIGH on pinCtl2), positive for other direction */
 		void run(int speed, char direction);
 		void brake();
-		// TODO : add second method run with speed going from -255 to 255
+		// Speed from -255 to 255 (positive = HIGH on pinCtl1). 0 to brake
+		void run(int speed);
 		int sense();	
 	private:
 		int _pinEnable;
